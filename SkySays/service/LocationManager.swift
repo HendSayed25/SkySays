@@ -10,7 +10,7 @@ import CoreLocation
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let manager = CLLocationManager()
 
-    @Published var query: String = "30.0715495,31.0215953" // Cairo fallback
+    @Published var query: String? = nil
     @Published var isReady: Bool = false
     @Published var authStatus: CLAuthorizationStatus = .notDetermined
 
@@ -26,11 +26,16 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         authStatus = manager.authorizationStatus
+
         switch manager.authorizationStatus {
+
         case .authorizedWhenInUse, .authorizedAlways:
             manager.requestLocation()
+
         case .denied, .restricted:
-            isReady = true // use Cairo fallback
+            query = nil
+            isReady = false
+
         default:
             break
         }
@@ -38,11 +43,13 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let loc = locations.first else { return }
+
         query = "\(loc.coordinate.latitude),\(loc.coordinate.longitude)"
         isReady = true
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        isReady = true // use Cairo fallback
+        query = nil
+        isReady = false
     }
 }
