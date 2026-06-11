@@ -33,6 +33,7 @@ struct WeatherDetailView: View {
                 weatherContent
             }
         }
+        .toolbarBackground(.hidden, for: .navigationBar)
         .task { await vm.loadWeather(for: locationQuery) }
         .refreshable { await vm.refresh(query: locationQuery) }
         .navigationDestination(isPresented: $showHourly) {

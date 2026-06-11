@@ -17,7 +17,7 @@ struct SavedLocationsView: View {
     @State private var showWeather = false
     @FocusState private var searchFocused: Bool
 
-    private let isMorning = TimeUtility.isMorning
+    private var isMorning: Bool { TimeUtility.isMorning }
 
     var body: some View {
         NavigationStack {
@@ -37,9 +37,6 @@ struct SavedLocationsView: View {
                     }
                 }
             }
-            .navigationTitle("My Locations")
-            .navigationBarTitleDisplayMode(.large)
-            .toolbarColorScheme(isMorning ? .light : .dark, for: .navigationBar)
             .navigationDestination(isPresented: $showWeather) {
                 if let query = navigateToQuery {
                     WeatherDetailView(locationQuery: query)
@@ -53,9 +50,16 @@ struct SavedLocationsView: View {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(isMorning ? .black.opacity(0.5) : .white.opacity(0.5))
 
-            TextField("Search for a city...", text: $searchVM.searchQuery)
-                .foregroundColor(isMorning ? .black : .white)
-                .tint(isMorning ? .black : .white)
+            TextField(
+                "",
+                text: $searchVM.searchQuery,
+                prompt: Text("Search for a city...")
+                    .foregroundColor(
+                        isMorning ? .black.opacity(0.5) : .white.opacity(0.5)
+                    )
+            )
+            .foregroundColor(isMorning ? .black : .white)
+            .tint(isMorning ? .black : .white)
                 .autocorrectionDisabled()
                 .focused($searchFocused)
                 .onChange(of: searchVM.searchQuery) {

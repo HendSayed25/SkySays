@@ -9,41 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var locationManager = LocationManager()
+    private var isMorning: Bool { TimeUtility.isMorning }
 
     var body: some View {
         TabView {
             NavigationStack {
-                Group {
-                    if locationManager.isReady {
-                        WeatherDetailView(locationQuery: locationManager.query)
-                    } else {
+                    if locationManager.isReady,
+                       let query = locationManager.query {
+                        WeatherDetailView(locationQuery: query)
+                    }
+                 else {
                         ZStack {
-                            LinearGradient(
-                                colors: [
-                                    Color(red: 0.53, green: 0.76, blue: 0.92),
-                                    Color(red: 0.98, green: 0.75, blue: 0.40)
-                                ],
-                                startPoint: .top,
-                                endPoint: .bottom
-                            )
+                            WeatherBackground(isMorning:isMorning)
                             .ignoresSafeArea()
-
+                            
                             VStack(spacing: 20) {
                                 Image(systemName: "location.circle.fill")
                                     .font(.system(size: 64))
                                     .foregroundColor(.white)
                                     .symbolEffect(.pulse)
-
+                                
                                 Text("Getting your location...")
                                     .font(.system(size: 18, weight: .medium))
                                     .foregroundColor(.white)
-
+                                
                                 if locationManager.authStatus == .denied {
                                     VStack(spacing: 12) {
                                         Text("Location access denied")
                                             .font(.system(size: 15))
                                             .foregroundColor(.white.opacity(0.8))
-
+                                        
                                         Button(action: {
                                             if let url = URL(string: UIApplication.openSettingsURLString) {
                                                 UIApplication.shared.open(url)
@@ -62,17 +57,32 @@ struct ContentView: View {
                             }
                         }
                     }
-                }
             }
             .tabItem { Label("Weather", systemImage: "cloud.sun.fill") }
             SavedLocationsView()
             .tabItem { Label("Locations", systemImage: "list.bullet") }
         }
-        .tint(.white)
+        .tint(isMorning ? .black : .white)
         .onAppear {
             locationManager.requestLocation()
-                UITabBar.appearance().backgroundColor = .clear
-                UITabBar.appearance().backgroundImage = UIImage()
+            
+            let appearance = UITabBarAppearance()
+            appearance.configureWithTransparentBackground()
+            
+            appearance.stackedLayoutAppearance.normal.iconColor =
+            isMorning
+            ? UIColor.black.withAlphaComponent(0.7)
+            : UIColor.white.withAlphaComponent(0.7)
+            
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
+                .foregroundColor: isMorning
+                ? UIColor.black.withAlphaComponent(0.7)
+                : UIColor.white.withAlphaComponent(0.7)
+            ]
+            
+            appearance.shadowColor = .clear
+            
+            UITabBar.appearance().standardAppearance = appearance
         }
     }
 }
