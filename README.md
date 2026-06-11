@@ -90,8 +90,8 @@ final class SavedLocation {
 - Requests `WhenInUse` permission on launch
 - Shows permission dialog automatically
 - **Approved** → uses real GPS coordinates
-- **Denied** → falls back to Cairo (30.07, 31.02)
-- **GPS error** → falls back to Cairo
+- **Denied** → shows permission denied screen with Open Settings button
+- **GPS error** → shows error state (no fallback location used)
 
 Add to `Info.plist`:
 ```
