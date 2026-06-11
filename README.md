@@ -3,7 +3,7 @@ A weather app built with SwiftUI, MVVM architecture, SwiftData persistence, and 
 
 ---
 
-## 📱 Screens
+## Screens
 
 ### 1. Today Screen
 - Dynamic background based on time of day
@@ -28,7 +28,22 @@ A weather app built with SwiftUI, MVVM architecture, SwiftData persistence, and 
 
 ---
 
-## 🔑 API Key Setup (Secure)
+## App Flow
+
+1. App launches → Splash screen (LaunchScreen + SwiftUI SplashView)
+2. Requests location permission automatically
+3. If approved → fetch real GPS coordinates
+4. Fetch weather data from WeatherAPI using coordinates
+5. Display Today Screen with current weather details
+6. User can:
+   - Search any city globally
+   - Save locations using SwiftData
+   - View hourly forecast for selected days
+   - Delete saved locations
+  
+---
+
+##  API Key Setup (Secure)
 
 ### Step 1: Create Secrets.xcconfig
 ```
@@ -91,7 +106,7 @@ final class SavedLocation {
 - Shows permission dialog automatically
 - **Approved** → uses real GPS coordinates
 - **Denied** → shows permission denied screen with Open Settings button
-- **GPS error** → shows error state (no fallback location used)
+- **GPS error** → shows error state 
 
 Add to `Info.plist`:
 ```
