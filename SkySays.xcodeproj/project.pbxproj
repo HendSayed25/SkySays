@@ -14,6 +14,8 @@
 		36130CA52FD55F4B0078FFB3 /* SkySaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36130CA42FD55F4B0078FFB3 /* SkySaysTests.swift */; };
 		36130CAF2FD55F4B0078FFB3 /* SkySaysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36130CAE2FD55F4B0078FFB3 /* SkySaysUITests.swift */; };
 		36130CB12FD55F4B0078FFB3 /* SkySaysUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36130CB02FD55F4B0078FFB3 /* SkySaysUITestsLaunchTests.swift */; };
+		3667AF9B2FDAA0D900953873 /* SavedLocationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3667AF9A2FDAA0D900953873 /* SavedLocationCard.swift */; };
+		3667AF9D2FDAA4BE00953873 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3667AF9C2FDAA4BE00953873 /* LocationManager.swift */; };
 		3685839B2FD5781400B3C36F /* SavedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3685839A2FD5781400B3C36F /* SavedLocation.swift */; };
 		3685839D2FD5782900B3C36F /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3685839C2FD5782900B3C36F /* WeatherModel.swift */; };
 		3685839F2FD5788E00B3C36F /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3685839E2FD5788E00B3C36F /* LocationInfo.swift */; };
@@ -63,6 +65,8 @@
 		36130CAA2FD55F4B0078FFB3 /* SkySaysUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkySaysUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36130CAE2FD55F4B0078FFB3 /* SkySaysUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySaysUITests.swift; sourceTree = "<group>"; };
 		36130CB02FD55F4B0078FFB3 /* SkySaysUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySaysUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3667AF9A2FDAA0D900953873 /* SavedLocationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationCard.swift; sourceTree = "<group>"; };
+		3667AF9C2FDAA4BE00953873 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3685839A2FD5781400B3C36F /* SavedLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocation.swift; sourceTree = "<group>"; };
 		3685839C2FD5782900B3C36F /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		3685839E2FD5788E00B3C36F /* LocationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			children = (
 				368583A72FD579DE00B3C36F /* WeatherService.swift */,
 				36A690EC2FD988A500AF164A /* Secrets.xcconfig */,
+				3667AF9C2FDAA4BE00953873 /* LocationManager.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				368583B92FD57C2500B3C36F /* WeatherBackground.swift */,
 				368583BB2FD57C5000B3C36F /* WeatherDetailView.swift */,
 				368583BD2FD57C7400B3C36F /* WeatherIconView.swift */,
+				3667AF9A2FDAA0D900953873 /* SavedLocationCard.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 				368583A52FD5797700B3C36F /* ForecastDay.swift in Sources */,
 				368583A82FD579DE00B3C36F /* WeatherService.swift in Sources */,
 				36BE6FD22FD7EA6E00709155 /* SearchViewModel.swift in Sources */,
+				3667AF9D2FDAA4BE00953873 /* LocationManager.swift in Sources */,
 				368583B62FD57BBC00B3C36F /* SavedLocationView.swift in Sources */,
 				368583BC2FD57C5000B3C36F /* WeatherDetailView.swift in Sources */,
 				3685839F2FD5788E00B3C36F /* LocationInfo.swift in Sources */,
@@ -374,6 +381,7 @@
 				36A690EB2FD9876700AF164A /* WeatherError.swift in Sources */,
 				3685839B2FD5781400B3C36F /* SavedLocation.swift in Sources */,
 				36130C922FD55F430078FFB3 /* SkySaysApp.swift in Sources */,
+				3667AF9B2FDAA0D900953873 /* SavedLocationCard.swift in Sources */,
 				368583AB2FD57A3800B3C36F /* General.swift in Sources */,
 				36BE6FD02FD7EA4A00709155 /* HourlyViewModel.swift in Sources */,
 				368583B42FD57B9300B3C36F /* HourlyForecastView.swift in Sources */,

@@ -27,7 +27,7 @@ struct TopWeatherSection: View {
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(secondary)
 
-            Text("H: \(vm.todayHigh) L: \(vm.todayLow)")
+            Text("H: \(vm.todayHigh)   L: \(vm.todayLow)")
                 .font(.system(size: 16, weight: .medium))
                 .foregroundColor(secondary)
 
