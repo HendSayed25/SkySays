@@ -3,7 +3,7 @@ A weather app built with SwiftUI, MVVM architecture, SwiftData persistence, and 
 
 ---
 
-## Screens
+## 📱 Screens
 
 ### 1. Today Screen
 - Dynamic background based on time of day
@@ -28,9 +28,9 @@ A weather app built with SwiftUI, MVVM architecture, SwiftData persistence, and 
 
 ---
 
-## App Flow
+## 🔄 App Flow
 
-1. App launches → Splash screen (LaunchScreen + SwiftUI SplashView)
+1. App launches → Splash screen 
 2. Requests location permission automatically
 3. If approved → fetch real GPS coordinates
 4. Fetch weather data from WeatherAPI using coordinates
@@ -43,7 +43,7 @@ A weather app built with SwiftUI, MVVM architecture, SwiftData persistence, and 
   
 ---
 
-##  API Key Setup (Secure)
+##  🔑 API Key Setup (Secure)
 
 ### Step 1: Create Secrets.xcconfig
 ```
