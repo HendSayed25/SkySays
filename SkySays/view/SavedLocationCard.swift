@@ -44,7 +44,7 @@ struct SavedLocationCard: View {
                         Text(weatherVM.currentTemp)
                             .font(.system(size: 40, weight: .thin))
                             .foregroundColor(WeatherBackground.foregroundColor(isMorning: isMorning))
-                        WeatherIconView(iconURL: weatherVM.conditionIconURL, size: 28, isMorning: isMorning)
+                        WeatherIconView(iconURL: weatherVM.conditionIconURL, size: 30, isMorning: isMorning)
                     }
                 }
             }
